@@ -1,29 +1,52 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
+		<view class="panel">
+			<text>
+				{{num}}
+			</text>
+		</view>
+		<view class="button-area">
+			<button v-show="isOver" @click='start'>开始抽奖</button>
+			<button v-show="!isOver" @click='stop'>结束抽奖</button>
 		</view>
 	</view>
 </template>
- 
+
 <script>
 	export default {
 		data() {
 			return {
-				title: 'Hi luke '
+				num: 0,
+				isOver: true,
+				min: 0, //包含
+				max: 100, //不包含
+				interval: 100, //ms 时间
+				clock: null
 			}
 		},
 		onLoad() {
 
 		},
 		methods: {
-
+			start() {
+				this.isOver = false;
+				this.getRandomNum()
+			},
+			getRandomNum() {
+				this.clock=setInterval(
+					() => {
+						this.num= this.min + Math.floor(Math.random() * (this.max - this.min))
+					}, this.interval)
+			},
+			stop(){
+				this.isOver =true;
+				clearInterval(this.clock)
+			}
 		}
 	}
 </script>
 
-<style>
+<style lang="scss">
 	.content {
 		display: flex;
 		flex-direction: column;
@@ -31,22 +54,24 @@
 		justify-content: center;
 	}
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
+	.panel {
+		margin: 20rpx;
+		border: 1rpx solid $uni-border-color;
+		width: 600rpx;
+		height: 400rpx;
 		display: flex;
 		justify-content: center;
+		align-items: center;
+		border-radius: 8rpx;
+		box-shadow: 0 0 40rpx 10rpx rgba(0, 0, 0, 0.1);
+		margin-top: 60rpx;
+
+		text {
+			font-size: 120rpx;
+		}
 	}
 
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
+	.button-area {
+		margin-top: 120rpx;
 	}
 </style>

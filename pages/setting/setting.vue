@@ -3,19 +3,19 @@
 		<view class="list">
 			<view class="uni-form-item uni-column">
 				<view class="title">最大值</view>
-				<input class="uni-input" type="number" placeholder="最大值" />
+				<input class="uni-input" v-model="max" type="number" placeholder="最大值" />
 			</view>
 			<view class="uni-form-item uni-column">
 				<view class="title">最小值</view>
-				<input class="uni-input" type="number" placeholder="最小值" />
+				<input class="uni-input" v-model="min" type="number" placeholder="最小值" />
 			</view>
 			<view class="uni-form-item uni-column">
 				<view class="title">时间间隔（ms）</view>
-				<input class="uni-input" type="number" placeholder="时间间隔" />
+				<input class="uni-input" type="number" v-model="interval" placeholder="时间间隔" />
 			</view>
 		</view>
 		<view class="button-area">
-			<button>保存</button>
+			<button @click="onSaveSetting">保存</button>
 		</view>
 	</view>
 </template>
@@ -24,11 +24,25 @@
 	export default {
 		data() {
 			return {
-
+				max: 100,
+				min: 0,
+				interval: 100, //ms
 			}
 		},
+		created() {
+			
+		},
+		created(){
+			let setting = uni.getStorageSync('setting') || {max:100,min:0,interval:100}
+			this.max = setting.max
+			this.min = setting.min
+			this.interval = setting.interval
+		},
 		methods: {
-
+			onSaveSetting() {
+				const setting = {max:this.max,min:this.min,interval:this.interval}
+				uni.setStorageSync('setting',setting)
+			}
 		}
 	}
 </script>

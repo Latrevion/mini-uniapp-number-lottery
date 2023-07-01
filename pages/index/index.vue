@@ -27,19 +27,25 @@
 		onLoad() {
 
 		},
+		onShow() {
+			let setting = uni.getStorageSync('setting')
+			this.min = setting.min
+			this.max = setting.max
+			this.interval = setting.interval
+		},
 		methods: {
 			start() {
 				this.isOver = false;
 				this.getRandomNum()
 			},
 			getRandomNum() {
-				this.clock=setInterval(
+				this.clock = setInterval(
 					() => {
-						this.num= this.min + Math.floor(Math.random() * (this.max - this.min))
+						this.num = parseInt(this.min) + parseInt(Math.floor(Math.random() * (this.max - this.min)))
 					}, this.interval)
 			},
-			stop(){
-				this.isOver =true;
+			stop() {
+				this.isOver = true;
 				clearInterval(this.clock)
 			}
 		}

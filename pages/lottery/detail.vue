@@ -13,10 +13,10 @@
 				</view>
 				<view>
 					<text>图片</text>
-					<uni-file-picker v-if="data.photo && data.photo.fileType == 'image'" :value="data.photo"
+					<uni-file-picker v-if="data.photo && data.photo.fileType == 'image'" v-model="data.photo"
 						:file-mediatype="data.photo && data.photo.fileType" return-type="object"
 						readonly></uni-file-picker>
-					<uni-link v-else-if="data.photo" :href="data.photo.url" :text="data.photo.url"></uni-link>
+					<uni-link v-else-if="data.photo" :href="data.photo" :text="data.photo.url"></uni-link>
 					<text v-else></text>
 				</view>
 			</view>

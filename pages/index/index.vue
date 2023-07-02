@@ -28,7 +28,7 @@
 
 		},
 		onShow() {
-			let setting = uni.getStorageSync('setting')
+			let setting = uni.getStorageSync('setting')|| {max:100,min:0,interval:100}
 			this.min = setting.min
 			this.max = setting.max
 			this.interval = setting.interval

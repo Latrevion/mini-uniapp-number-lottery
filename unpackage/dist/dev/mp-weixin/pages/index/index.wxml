@@ -1,0 +1,1 @@
+<view class="content"><view class="panel"><text>{{a}}</text></view><view class="button-area"><button hidden="{{!b}}" bindtap="{{c}}">开始抽奖</button><button hidden="{{!d}}" bindtap="{{e}}">结束抽奖</button></view></view>

@@ -10,7 +10,31 @@
 			"navigationBarTitleText": "",
 			"enablePullDownRefresh": false
 		}
-	}],
+	},{
+    "path": "pages/lottery/add",
+    "style": {
+        "navigationBarTitleText": "新增"
+    }
+}
+,{
+    "path": "pages/lottery/edit",
+    "style": {
+        "navigationBarTitleText": "编辑"
+    }
+}
+,{
+    "path": "pages/lottery/list",
+    "style": {
+        "navigationBarTitleText": "列表"
+    }
+}
+,{
+    "path": "pages/lottery/detail",
+    "style": {
+        "navigationBarTitleText": "详情"
+    }
+}
+],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",

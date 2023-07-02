@@ -13,6 +13,18 @@ const validator = {
     ],
     "title": "名称",
     "label": "名称"
+  },
+  "photo": {
+    "rules": [
+      {
+        "required": true
+      },
+      {
+        "format": "file"
+      }
+    ],
+    "title": "图片",
+    "label": "图片"
   }
 }
 

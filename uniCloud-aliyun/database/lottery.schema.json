@@ -1,1 +1,27 @@
-{"bsonType":"object","permission":{"read":true,"create":true,"update":true,"delete":true},"required":["title"],"properties":{"_id":{"description":"存储文档 ID（用户 ID），系统自动生成"},"title":{"bsonType":"string","title":"名称","description":"输入奖品名称"}},"version":"0.0.1"}
+{
+	"bsonType": "object",
+	"permission": {
+		"read": true,
+		"create": true,
+		"update": true,
+		"delete": true
+	},
+	"required": ["title", "photo"],
+	"properties": {
+		"_id": {
+			"description": "存储文档 ID（用户 ID），系统自动生成"
+		},
+		"title": {
+			"bsonType": "string",
+			"title": "名称",
+			"description": "输入奖品名称"
+		},
+		"photo": {
+			"bsonType": "file",
+			"title": "图片",
+			"fileMediaType": "image", // 可选值 all|image|video 默认值为all,表示所有文件，image表示图片类型文件，video表示视频类型文件
+			"fileExtName": "jpg,png" // 扩展名过滤，多个用 , 分割
+		}
+	},
+	"version": "0.0.1"
+}

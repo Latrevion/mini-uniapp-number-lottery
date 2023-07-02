@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <unicloud-db ref="udb" v-slot:default="{data, pagination, loading, hasMore, error}" :collection="collectionList" field="title">
+    <unicloud-db ref="udb" v-slot:default="{data, pagination, loading, hasMore, error}" :collection="collectionList" field="title,photo">
       <view v-if="error">{{error.message}}</view>
       <view v-else-if="data">
         <uni-list>
@@ -9,7 +9,7 @@
               <text>
                 <!-- 此处默认显示为_id，请根据需要自行修改为其他字段 -->
                 <!-- 如果使用了联表查询，请参考生成的 admin 项目中 list.vue 页面 -->
-                {{item._id}}
+         {{item._id}}
               </text>
             </template>
           </uni-list-item>
@@ -19,7 +19,10 @@
     </unicloud-db>
     <uni-fab ref="fab" horizontal="right" vertical="bottom" :pop-menu="false" @fabClick="fabClick" />
   </view>
-</template>
+</template> 
+
+
+
 
 <script>
   const db = uniCloud.database()

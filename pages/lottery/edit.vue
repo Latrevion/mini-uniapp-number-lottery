@@ -4,6 +4,9 @@
       <uni-forms-item name="title" label="名称" required>
         <uni-easyinput placeholder="输入奖品名称" v-model="formData.title"></uni-easyinput>
       </uni-forms-item>
+      <uni-forms-item name="photo" label="图片" required>
+        <uni-file-picker file-mediatype="image" file-extname="jpg,png" return-type="object" v-model="formData.photo"></uni-file-picker>
+      </uni-forms-item>
       <view class="uni-button-group">
         <button type="primary" class="uni-button" @click="submit">提交</button>
       </view>
@@ -32,7 +35,8 @@
   export default {
     data() {
       let formData = {
-        "title": ""
+        "title": "",
+        "photo": null
       }
       return {
         formData,
@@ -97,7 +101,7 @@
         uni.showLoading({
           mask: true
         })
-        db.collection(dbCollectionName).doc(id).field("title").get().then((res) => {
+        db.collection(dbCollectionName).doc(id).field("title,photo").get().then((res) => {
           const data = res.result.data[0]
           if (data) {
             this.formData = data

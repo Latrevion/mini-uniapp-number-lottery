@@ -1,7 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/setting/setting"
+    "pages/setting/setting",
+    "pages/lottery/add",
+    "pages/lottery/edit",
+    "pages/lottery/list",
+    "pages/lottery/detail"
   ],
   "window": {
     "navigationBarTextStyle": "black",

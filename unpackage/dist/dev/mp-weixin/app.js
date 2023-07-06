@@ -4,6 +4,10 @@ const common_vendor = require("./common/vendor.js");
 if (!Math) {
   "./pages/index/index.js";
   "./pages/setting/setting.js";
+  "./pages/lottery/add.js";
+  "./pages/lottery/edit.js";
+  "./pages/lottery/list.js";
+  "./pages/lottery/detail.js";
 }
 const _sfc_main = {
   onLaunch: function() {

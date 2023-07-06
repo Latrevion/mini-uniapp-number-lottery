@@ -52,10 +52,10 @@
 			"selectedIconPath": "static/index-select.png",
 			"text": "抽奖"
 		}, {
-			"pagePath": "pages/setting/setting",
+			"pagePath": "pages/lottery/list",
 			"iconPath": "static/setting.png",
 			"selectedIconPath": "static/setting-select.png",
-			"text": "设置"
+			"text": "列表"
 		}]
 	}
 }

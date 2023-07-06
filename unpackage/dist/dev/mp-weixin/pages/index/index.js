@@ -17,7 +17,7 @@ const _sfc_main = {
   onLoad() {
   },
   onShow() {
-    let setting = common_vendor.index.getStorageSync("setting");
+    let setting = common_vendor.index.getStorageSync("setting") || { max: 100, min: 0, interval: 100 };
     this.min = setting.min;
     this.max = setting.max;
     this.interval = setting.interval;
